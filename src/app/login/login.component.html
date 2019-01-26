@@ -1,0 +1,21 @@
+<div fxLayout fxFill fxLayoutAlign="space-around center">
+    <mat-card class="example-card">
+        <mat-card-header fxLayout="row" fxLayoutAlign="center">
+          <mat-card-title >Welcome to Blogger!</mat-card-title>
+        </mat-card-header>
+        <img mat-card-image src="https://upload.wikimedia.org/wikipedia/commons/3/31/Blogger.svg" height="64" width="64" alt="Photo of a Shiba Inu">
+        <mat-card-content>
+          <mat-list>
+            <mat-form-field fxLayout="row" fxLayoutAlign="center">
+              <input matInput name="username" placeholder="Username" #uname>
+            </mat-form-field>
+            <mat-form-field fxLayout="row" fxLayoutAlign="center">
+              <input matInput name="password" placeholder="Password" type="password" #password>
+            </mat-form-field>
+          </mat-list>
+        </mat-card-content>
+        <mat-card-actions fxLayout="column" fxLayoutAlign="center">
+              <button mat-button (click)='onClick(uname.value, password.value)'>LOGIN</button>
+        </mat-card-actions>
+      </mat-card>
+</div>

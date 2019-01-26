@@ -1,0 +1,11 @@
+<div fxLayout fxFill fxLayoutAlign="space-around center">
+    <mat-card class="example-card">
+        <mat-card-header fxLayout="row" fxLayoutAlign="center">
+          <mat-card-title>{{blog.title}}</mat-card-title>
+        </mat-card-header>
+        <img mat-card-image src="{{blog.imageLink}}" height="64" width="64" alt="Photo of a Shiba Inu">
+        <mat-card-content>
+          <p #blogContent> {{blog.content}}</p>
+        </mat-card-content>
+      </mat-card>
+</div>

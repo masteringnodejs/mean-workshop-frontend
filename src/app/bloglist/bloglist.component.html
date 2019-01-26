@@ -1,0 +1,28 @@
+<mat-toolbar color="primary">
+    <mat-toolbar-row>
+        <button mat-button [matMenuTriggerFor]="menu">Blogger Menu</button>
+        <mat-menu #menu="matMenu">
+          <button mat-menu-item>About</button>
+          <button mat-menu-item>Logout</button>
+        </mat-menu>
+    </mat-toolbar-row>
+</mat-toolbar>
+
+
+<mat-grid-list cols="4" rowHeight="300px">
+    <mat-grid-tile *ngFor='let blog of blogs' fxLayout="column" fxLayoutAlign="center">
+      <mat-card>
+        <mat-card-header fxLayout="row" fxLayoutAlign="center">
+          <mat-card-title>{{blog.title | slice:0:15}}</mat-card-title>
+        </mat-card-header>
+        <img mat-card-image src="https://upload.wikimedia.org/wikipedia/commons/3/31/Blogger.svg" height="64" width="64">
+        <mat-card-content>
+          <p fxLayout="row" fxLayoutAlign="center"> {{ blog.summary }} </p>
+          <p fxLayout="row" fxLayoutAlign="center"> <span>By: </span>{{ blog.author }}</p>
+        </mat-card-content>
+        <mat-card-actions fxLayout="column" fxLayoutAlign="center">
+          <button mat-button (click)='onClick(blog._id)'>Read</button>
+        </mat-card-actions>
+      </mat-card>
+    </mat-grid-tile>
+</mat-grid-list>
