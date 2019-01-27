@@ -1,0 +1,14 @@
+<mat-toolbar color="primary">
+  <mat-toolbar-row>
+    <button mat-button [matMenuTriggerFor]="menu">Blogger Menu</button>
+    <mat-menu #menu="matMenu">
+      <button mat-menu-item (click)='onClickAbout()'>About</button>
+      <div *ngIf='loggedin === "true"'>
+        <button mat-menu-item (click)='onClickAddBlog()'>New Blog</button>
+
+        <button mat-menu-item (click)='onClickLogout()'>Logout</button>
+      </div>
+
+    </mat-menu>
+  </mat-toolbar-row>
+</mat-toolbar>

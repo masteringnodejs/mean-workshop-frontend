@@ -11,7 +11,7 @@ export class BloggerservicesService {
   public login(uname, password, cb){
     console.log("From service: " + uname + ":" + password);
     let body =  {uname: uname, password: password};
-    this.httpClient.post(`${this.apiURL}/login`, body, {observe: 'response'})
+    this.httpClient.post(`${this.apiURL}/login`, body, {observe: 'response', withCredentials: true})
     .subscribe((res)=>{
       return cb(res.status === 200);
     }, 
@@ -23,7 +23,7 @@ export class BloggerservicesService {
   public listBlogs(cb){
     console.log("In list blogs");
 
-    this.httpClient.get(`${this.apiURL}/listblogs`)
+    this.httpClient.get(`${this.apiURL}/listblogs`, {withCredentials: true})
     .subscribe((res)=>{
       return cb(res);
     }, 
@@ -35,7 +35,39 @@ export class BloggerservicesService {
   public getBlog(id, cb){
     console.log("In get blogs");
 
-    this.httpClient.get(`${this.apiURL}/getblog/${id}`)
+    this.httpClient.get(`${this.apiURL}/getblog/${id}`, {observe: 'response', withCredentials:true})
+    .subscribe((res)=>{
+      return cb(res);
+    }, 
+    (err) => {
+      return cb(err);
+    });
+  }
+
+  public addComment(comment, id, cb){
+    let body =  {comment: {comment: comment}};
+    this.httpClient.post(`${this.apiURL}/addcomment/${id}`, body, {observe: 'response', withCredentials:true})
+    .subscribe((res)=>{
+      return cb(res);
+    }, 
+    (err) => {
+      return cb(err);
+    });
+  }
+
+  public addBlog(blog, cb){
+    let body =  {blog: blog};
+    this.httpClient.post(`${this.apiURL}/addblog`, body, {observe: 'response', withCredentials:true})
+    .subscribe((res)=>{
+      return cb(res);
+    }, 
+    (err) => {
+      return cb(err);
+    });
+  }
+
+  public logout(cb){
+    this.httpClient.post(`${this.apiURL}/logout`, {}, {observe: 'response', withCredentials:true})
     .subscribe((res)=>{
       return cb(res);
     }, 

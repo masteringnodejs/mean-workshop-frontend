@@ -12,6 +12,7 @@ import { MatListModule } from '@angular/material/list';
 import { FlexLayoutModule } from '@angular/flex-layout';
 import {MatMenuModule} from '@angular/material/menu';
 import {MatToolbarModule} from '@angular/material/toolbar';
+import { QuillModule } from 'ngx-quill'
 
 
 
@@ -24,13 +25,19 @@ import { HttpClientModule } from '@angular/common/http';
 import { BloggerservicesService } from './bloggerservices.service';
 import { BloglistComponent } from './bloglist/bloglist.component';
 import { ShowblogComponent } from './showblog/showblog.component';
+import { TopmenuComponent } from './topmenu/topmenu.component';
+import { AboutComponent } from './about/about.component';
+import { NewblogComponent } from './newblog/newblog.component';
 
 @NgModule({
   declarations: [
     AppComponent,
     LoginComponent,
     BloglistComponent,
-    ShowblogComponent
+    ShowblogComponent,
+    TopmenuComponent,
+    AboutComponent,
+    NewblogComponent
   ],
   imports: [
     BrowserModule,
@@ -45,6 +52,7 @@ import { ShowblogComponent } from './showblog/showblog.component';
     MatToolbarModule,
     FlexLayoutModule,
     MatMenuModule,
+    QuillModule,
     AppRoutingModule,
     HttpClientModule
   ],

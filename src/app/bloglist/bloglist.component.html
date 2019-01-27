@@ -1,13 +1,4 @@
-<mat-toolbar color="primary">
-    <mat-toolbar-row>
-        <button mat-button [matMenuTriggerFor]="menu">Blogger Menu</button>
-        <mat-menu #menu="matMenu">
-          <button mat-menu-item>About</button>
-          <button mat-menu-item>Logout</button>
-        </mat-menu>
-    </mat-toolbar-row>
-</mat-toolbar>
-
+<app-topmenu loggedin="true"></app-topmenu>
 
 <mat-grid-list cols="4" rowHeight="300px">
     <mat-grid-tile *ngFor='let blog of blogs' fxLayout="column" fxLayoutAlign="center">

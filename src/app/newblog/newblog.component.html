@@ -1,0 +1,33 @@
+<link rel="stylesheet" href="//cdn.quilljs.com/1.3.1/quill.bubble.css">
+<link rel="stylesheet" href="//cdn.quilljs.com/1.3.1/quill.snow.css">
+
+
+
+<app-topmenu loggedin="false"></app-topmenu>
+
+<div fxLayout fxLayoutAlign="space-around center">
+    <mat-card class="example-card">
+        <mat-card-header fxLayoutAlign="center">
+          <mat-card-title >Create a new blog with GeekyPanda! </mat-card-title>
+        </mat-card-header>
+        <mat-card-content>
+          <mat-list>
+            <mat-form-field fxLayout="column" >
+              <input matInput name="title" placeholder="Title" #title>
+            </mat-form-field>
+            <mat-form-field fxLayout="column">
+              <input matInput name="imagelink" placeholder="Image Link"  #imagelink>
+            </mat-form-field>
+            <mat-form-field fxLayout="column">
+                <input matInput name="summary" placeholder="Summary"  #summary>
+              </mat-form-field> 
+          </mat-list>
+        </mat-card-content>
+        <mat-card-content style="height: 300px">
+            <quill-editor #rtfEditor (onContentChanged)="contentChanged($event)"></quill-editor>
+        </mat-card-content>
+        <mat-card-actions fxLayout="column" fxLayoutAlign="center" style="padding-top: 50px">
+              <button mat-button (click)='onClickAddBlog(title.value, imagelink.value, summary.value)'>Add Blog</button>
+        </mat-card-actions>
+      </mat-card>
+</div>
