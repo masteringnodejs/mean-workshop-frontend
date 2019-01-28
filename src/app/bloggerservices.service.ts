@@ -5,13 +5,25 @@ import { HttpClient } from '@angular/common/http';
   providedIn: 'root'
 })
 export class BloggerservicesService {
-  apiURL: string = 'http://localhost:3000';
+  apiURL: string = 'http://localhost:8080';
   constructor(private httpClient: HttpClient) { }
 
   public login(uname, password, cb){
     console.log("From service: " + uname + ":" + password);
     let body =  {uname: uname, password: password};
     this.httpClient.post(`${this.apiURL}/login`, body, {observe: 'response', withCredentials: true})
+    .subscribe((res)=>{
+      return cb(res.status === 200);
+    }, 
+    (err) => {
+      return cb(err);
+    });
+  }
+
+  public register(uname, password, cb){
+    console.log("From service: " + uname + ":" + password);
+    let body =  {uname: uname, password: password};
+    this.httpClient.post(`${this.apiURL}/register`, body, {observe: 'response', withCredentials: true})
     .subscribe((res)=>{
       return cb(res.status === 200);
     }, 
